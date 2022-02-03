@@ -198,7 +198,22 @@ sudo sed -i 12d /etc/profile.d/freetype2.sh && echo -e 'export FREETYPE_PROPERTI
 echo -e '<?xml version="1.0"?>\n<!DOCTYPE fontconfig SYSTEM "fonts.dtd">\n<fontconfig>\n<match target="font">\n<edit name="antialias" mode="assign">\n<bool>true</bool>\n</edit>\n<edit name="hinting" mode="assign">\n<bool>true</bool>\n</edit>\n<edit mode="assign" name="rgba\n<const>rgb</const>\n</edit>\n<edit mode="assign" name="hintstyle"\n<const>hintslight</const>\n</edit>\n<edit mode="assign" name="lcdfilter"\n<const>lcddefault</const>\n</edit>\n</match>\n</fontconfig>' | sudo tee /etc/fonts/local.conf
 echo -e '<?xml version="1.0"?>\n<!DOCTYPE fontconfig SYSTEM "fonts.dtd">\n<fontconfig>\n<match target="font">\n<edit name="embeddedbitmap" mode="assign">\n<bool>false</bool>\n</edit>\n</match\n</fontconfig>' | sudo tee /etc/fonts/conf.d/20-no-embedded.conf
 
+#
+#
+#
+#
+#
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###AMDGPU Clocks###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+
+echo -e "[Unit]\n\n[Service]\nExecStart=/usr/bin/sh -c 'echo "high" > /sys/class/drm/card0/device/power_dpm_force_performance_level'\nType=idle\n\n[Install]\nWantedBy=multi-user.target" | sudo tee /etc/systemd/system/gpu-power.service && sudo systemctl enable gpu-power.service
+
+#
+#
+#
+#
+#
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZSH###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
