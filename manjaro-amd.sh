@@ -104,7 +104,7 @@ sudo pacman -S cups gtk3-print-backends system-config-printer hplip xsane python
 #
 #
 
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###Tearing e Pacotes de Video Intel###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###Tearing e Pacotes de Video AMD###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
 
