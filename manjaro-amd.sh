@@ -30,7 +30,9 @@ sleep 1
 
 yay -S google-chrome --noconfirm
 
-sudo cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications && sed -i '109c\Exec=/usr/bin/google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder %U' ~/.local/share/applications/google-chrome.desktop && sudo update-desktop-database ~/.local/share/applications
+sudo cp /usr/share/applications/google-chrome.desktop ~/.local/share/applications
+
+sed -i '109c\Exec=/usr/bin/google-chrome-stable --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --use-gl=desktop --enable-features=VaapiVideoDecoder %U' ~/.local/share/applications/google-chrome.desktop
 
 #
 #
