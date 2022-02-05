@@ -207,4 +207,6 @@ sudo pacman -S ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji  ttf-roboto
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
-sudo nano /etc/profile.d/freetype2.sh
+echo -e '<?xml version="1.0"?>\n<!DOCTYPE fontconfig SYSTEM "fonts.dtd">\n<fontconfig>\n<match target="font">\n<edit name="antialias" mode="assign">\n<bool>true</bool>\n</edit>\n<edit name="hinting" mode="assign">\n<bool>true</bool>\n</edit>\n<edit mode="assign" name="rgba\n<const>rgb</const>\n</edit>\n<edit mode="assign" name="hintstyle"\n<const>hintslight</const>\n</edit>\n<edit mode="assign" name="lcdfilter"\n<const>lcddefault</const>\n</edit>\n</match>\n</fontconfig>' | sudo tee /etc/fonts/local.conf
+echo -e '<?xml version="1.0"?>\n<!DOCTYPE fontconfig SYSTEM "fonts.dtd">\n<fontconfig>\n<match target="font">\n<edit name="embeddedbitmap" mode="assign">\n<bool>false</bool>\n</edit>\n</match\n</fontconfig>' | sudo tee /etc/fonts/conf.d/20-no-embedded.conf
+
