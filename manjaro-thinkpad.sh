@@ -1,5 +1,16 @@
 #!/bin/bash
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+sleep 1
+
+sudo sed -i '2c\GRUB_TIMEOUT=1' /etc/default/grub && sudo sed -i '5c\GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1 mitigations=off psmouse.synaptics_intertouch=0"' /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+#
+#
+#
+#
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###YAY###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
