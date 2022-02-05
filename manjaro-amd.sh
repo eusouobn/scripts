@@ -34,6 +34,8 @@ sudo cp /usr/share/applications/google-chrome.desktop ~/.local/share/application
 
 sed -i '109c\Exec=/usr/bin/google-chrome-stable --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --use-gl=desktop --enable-features=VaapiVideoDecoder %U' ~/.local/share/applications/google-chrome.desktop
 
+sudo update-desktop-database ~/.local/share/applications
+
 #
 #
 #
