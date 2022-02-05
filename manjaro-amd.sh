@@ -30,6 +30,9 @@ sleep 1
 
 yay -S google-chrome --noconfirm
 
+sed -i '109c\Exec=/usr/bin/google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder %U' ~/.local/share/applications/google-chrome.desktop
+
+
 #
 #
 #
