@@ -207,7 +207,7 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###Fontes###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
 
-sudo pacman -S ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji  ttf-roboto ttf-roboto-mono ttf-opensans
+sudo pacman -S ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji ttf-roboto ttf-roboto-mono ttf-opensans
 
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
