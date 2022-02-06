@@ -46,6 +46,17 @@ sudo pacman -S wine-staging wine-mono wine-gecko giflib lib32-giflib libpng lib3
 #
 #
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###DXVK###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+
+echo -e 'dxgi.maxDeviceMemory = 1024' | tee ~/.config/dxvk.conf
+
+#
+#
+#
+#
+#
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###Chrome###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
