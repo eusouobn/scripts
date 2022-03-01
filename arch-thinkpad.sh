@@ -20,7 +20,7 @@ cfdisk /dev/sda
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###FORMATAR PARTICOES###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
-sleep 1
+sleep 2
 
 mkfs.fat /dev/sda1
 
@@ -31,7 +31,7 @@ mkfs.btrfs /dev/sda2 --force
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###MONTAR PARTICOES###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
-sleep 1
+sleep 2
 
 mkdir /mnt/efi
 
@@ -42,7 +42,7 @@ mount /dev/sda2 /mnt
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###MIRRORS###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
-sleep 1
+sleep 2
 
 pacman -S pacman-contrib
 
@@ -59,9 +59,9 @@ cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '37c\ParallelDownloads = 16' 
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###BASE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
-sleep 1
+sleep 2
 
-pacstrap /mnt base linux-zen linux-firmware
+pacstrap /mnt base base-devel linux-zen linux-firmware networkmanager nano git wget
 
 
 
@@ -75,10 +75,31 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+sleep 2
+
+mkdir /boot/efi
+
+mount /dev/sda1 /boot/efi/
+
+pacman -S grub efibootmgr
+
+grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=Arch
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+sleep 2
+
+
+
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###SCRIPT PS###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 cd /mnt
 git clone http://github.com/eusouobn/scripts
+
 
 
 
