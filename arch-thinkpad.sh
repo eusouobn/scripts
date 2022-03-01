@@ -44,9 +44,9 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###MIRRORS###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n
 
 sleep 1
 
-pacman -S reflector
+pacman -S pacman-contrib
 
-reflector --country Brazil --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+curl -s "https://archlinux.org/mirrorlist/?country=BR&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - | sudo tee /etc/pacman.d/mirrorlist
 
 
 
