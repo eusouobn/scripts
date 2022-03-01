@@ -61,7 +61,7 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###BASE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 2
 
-pacstrap /mnt base base-devel linux-zen linux-firmware networkmanager nano git wget
+pacstrap /mnt base linux-zen linux-firmware
 
 
 
@@ -71,26 +71,6 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###FSTAB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 sleep 1
 
 genfstab -U /mnt >> /mnt/etc/fstab
-
-
-
-
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
-
-sleep 2
-
-mkdir /boot/efi
-
-mount /dev/sda1 /boot/efi/
-
-pacman -S grub efibootmgr
-
-grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=Arch
-
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
-sleep 2
 
 
 
