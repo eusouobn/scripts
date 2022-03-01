@@ -137,14 +137,6 @@ systemctl start bluetooth
 
 
 
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###PARAMETROS GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
-
-sleep 1
-
-sudo cp /etc/default/grub /etc/default/grub.bak && sed -i '4c\GRUB_TIMEOUT=1' /etc/default/grub && sed -i '6c\GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off"' /etc/default/grub && grub-mkconfig -o /boot/grub/grub.cfg
-
-
-
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###WINE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
@@ -193,5 +185,22 @@ pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=Arch
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###PARAMETROS GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+sleep 1
+
+sudo cp /etc/default/grub /etc/default/grub.bak && sed -i '4c\GRUB_TIMEOUT=1' /etc/default/grub && sed -i '6c\GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off"' /etc/default/grub && grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###INSTALACAO FINAL###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+sleep 1
+
+
 
 
