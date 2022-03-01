@@ -58,6 +58,8 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
 
+mkdir /boot/efi
+
 mount /dev/sda1 /boot/efi/
 
 pacman -S grub efibootmgr
@@ -87,7 +89,7 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###INTERFACE GRAFICA###\n#\n#\n#\n#\n#\n#\
 
 sleep 1
 
-pacman -S xdg-user-dirs xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter
+pacman -S xdg-user-dirs xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter netwotkmanager
 
 systemctl enable lightdm NetworkManager
 
@@ -124,7 +126,7 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###DESCOMPACTADORES###\n#\n#\n#\n#\n#\n#\n
 
 sleep 1
 
-pacman -S ark file-roller tar gzip bzip2 zip unzip unrar p7zip --noconfirm
+pacman -S xarchiver file-roller tar gzip bzip2 zip unzip unrar p7zip --noconfirm
 
 
 
@@ -190,3 +192,5 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###Desativar NetworkManager-wait-online.se
 sleep 1
 
 sudo systemctl disable NetworkManager-wait-online.service
+
+systemctl enable NetwotkManager lightdm
