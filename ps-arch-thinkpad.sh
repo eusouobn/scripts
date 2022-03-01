@@ -128,11 +128,11 @@ pacman -S ark file-roller tar gzip bzip2 zip unzip unrar p7zip --noconfirm
 
 
 
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###UTILITARIOS BASICOS KDE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###UTILITARIOS BASICOS XFCE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
 
-pacman -S gwenview kcalc spectacle audacious mpv gimp kwrite kdialog --noconfirm
+pacman -S galculator xfce4-screenshooter ristretto mousepad hardinfo audacious --noconfirm
 
 
 
@@ -147,6 +147,8 @@ modprobe btusb
 systemctl enable bluetooth
 
 systemctl start bluetooth
+
+
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###PARAMETROS GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
