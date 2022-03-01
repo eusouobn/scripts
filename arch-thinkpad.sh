@@ -74,6 +74,14 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 
 
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###SCRIPT PS###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+cd /mnt
+git clone http://githun.com/eusouobn/scripts
+
+
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###CHROOT###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
