@@ -54,21 +54,6 @@ cp /etc/pacman.conf /etc/pacman.conf.bak && sed -i '37c\ParallelDownloads = 16' 
 
 
 
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
-
-sleep 1
-
-mkdir /boot/efi
-
-mount /dev/sda1 /boot/efi/
-
-pacman -S grub efibootmgr
-
-grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=Arch
-
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ROOT###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 sleep 1
@@ -194,3 +179,19 @@ sleep 1
 sudo systemctl disable NetworkManager-wait-online.service
 
 systemctl enable NetwotkManager lightdm
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###GRUB###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+sleep 1
+
+mkdir /boot/efi
+
+mount /dev/sda1 /boot/efi/
+
+pacman -S grub efibootmgr
+
+grub-install --target=x86_64-efi --efi-directory=boot/efi --bootloader-id=Arch
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
