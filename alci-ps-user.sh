@@ -52,7 +52,7 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###INTERFACE GRAFICA###\n#\n#\n#\n#\n#\n#\
 
 sleep 1
 
-sudo pacman -S xdg-user-dirs xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter networkmanager --noconfirm
+sudo pacman -S xdg-user-dirs xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter networkmanager xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol --noconfirm
 
 sudo systemctl enable lightdm NetworkManager
 
