@@ -30,23 +30,6 @@ cd yay
 makepkg -si --noconfirm
 
 
-yay -S fontconfig-ubuntu ttf-ms-fonts ttf-ubuntu-font-family
-
-wget https://raw.githubusercontent.com/eusouobn/scripts/main/fonts.conf
-
-
-mkdir ~/.config/fontconfig/ 
-
-
-mv fonts.conf ~/.config/fontconfig/fonts.conf
-
-
-wget https://raw.githubusercontent.com/eusouobn/scripts/main/fonts.conf
-
-
-sudo sed -i 12d /etc/profile.d/freetype2.sh && echo -e 'export FREETYPE_PROPERTIES="truetype:interpreter-version=40"' | sudo tee -a /etc/profile.d/freetype2.sh
-
-
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###INTERFACE GRAFICA###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
@@ -166,6 +149,7 @@ sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak && sudo sed -i '
 
 
 
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZRAM###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 
@@ -174,8 +158,29 @@ echo -e 'zram' | sudo tee /etc/modules-load.d/zram.conf && echo -e 'options zram
 
 
 
-echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZSH###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###FONTES###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
+
+
+
+yay -S fontconfig-ubuntu ttf-ms-fonts ttf-ubuntu-font-family
+
+wget https://raw.githubusercontent.com/eusouobn/scripts/main/fonts.conf
+
+
+mkdir ~/.config/fontconfig/ 
+
+
+mv fonts.conf ~/.config/fontconfig/fonts.conf
+
+
+sudo sed -i 12d /etc/profile.d/freetype2.sh && echo -e 'export FREETYPE_PROPERTIES="truetype:interpreter-version=40"' | sudo tee -a /etc/profile.d/freetype2.sh
+
+
+
+
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZSH###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 
 sudo pacman -S zsh git wget && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
