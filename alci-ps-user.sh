@@ -158,5 +158,7 @@ sleep 1
 sudo cp /etc/default/grub /etc/default/grub.bak && sudo sed -i '4c\GRUB_TIMEOUT=1' /etc/default/grub && sudo sed -i '6c\GRUB_CMDLINE_LINUX_DEFAULT="mitigations=off"' /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###AUTOLOGIN LIGHTDM###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 
+sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak && sudo sed -i '120c\autologin-user=bn' /etc/lightdm/lightdm.conf
