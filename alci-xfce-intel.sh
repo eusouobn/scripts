@@ -16,6 +16,8 @@ systemctl enable lightdm NetworkManager
 
 localectl set-x11-keymap br abnt2 thinkpad
 
+
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###SOFTWARES PADRAO###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 
