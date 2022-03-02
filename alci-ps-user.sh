@@ -54,7 +54,7 @@ sleep 1
 
 sudo pacman -S xdg-user-dirs xorg-server xorg-xinit xterm xf86-video-intel xfce4 lightdm lightdm-gtk-greeter networkmanager network-manager-applet xfce4-whiskermenu-plugin xfce4-pulseaudio-plugin pavucontrol --noconfirm
 
-sudo systemctl enable lightdm NetworkManager
+sudo systemctl enable lightdm NetworkManager fstrim.timer
 
 sudo localectl set-x11-keymap br abnt2 thinkpad
 
@@ -113,6 +113,7 @@ sudo systemctl enable bluetooth
 
 sudo systemctl start bluetooth
 
+sudo cp /etc/bluetooth/main.conf /etc/bluetooth/main.conf.bak && sudo sed -i '2c\\n# Automatically connect both A2DP and HFP/HSP profiles for incoming\n# connections. Some headsets that support both profiles will only connect the\n# other one automatically so the default setting of true is usually a good\n# idea.\nAutoConnect=true\n\n# Disable Headset\nDisable=Headset\n' /etc/bluetooth/main.conf && sudo sed -i '68c\MultiProfile = multiple' /etc/bluetooth/main.conf
 
 
 
@@ -162,3 +163,22 @@ echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###AUTOLOGIN LIGHTDM###\n#\n#\n#\n#\n#\n#\
 
 
 sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak && sudo sed -i '120c\autologin-user=bn' /etc/lightdm/lightdm.conf
+
+
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZRAM###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+
+echo -e 'zram' | sudo tee /etc/modules-load.d/zram.conf && echo -e 'options zram num_devices=4' | sudo tee /etc/modprobe.d/zram.conf && echo -e 'KERNEL=="zram0", ATTR{disksize}="1G" RUN="/usr/bin/mkswap /dev/zram0", TAG+="systemd"\nKERNEL=="zram1", ATTR{disksize}="1G" RUN="/usr/bin/mkswap /dev/zram1", TAG+="systemd"\nKERNEL=="zram2", ATTR{disksize}="1G" RUN="/usr/bin/mkswap /dev/zram2", TAG+="systemd"\nKERNEL=="zram3", ATTR{disksize}="1G" RUN="/usr/bin/mkswap /dev/zram3", TAG+="systemd"' | sudo tee /etc/udev/rules.d/99-zram.rules && echo -e '/dev/zram0 none swap defaults 0 0\n/dev/zram1 none swap defaults 0 0\n/dev/zram2 none swap defaults 0 0\n/dev/zram3 none swap defaults 0 0\n' | sudo tee -a /etc/fstab
+
+
+
+
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###ZSH###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+
+
+sudo pacman -S zsh git wget && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+sudo sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
