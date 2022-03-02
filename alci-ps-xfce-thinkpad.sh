@@ -158,6 +158,12 @@ echo -e 'zram' | sudo tee /etc/modules-load.d/zram.conf && echo -e 'options zram
 
 
 
+echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###CONFIG XFCE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
+
+
+cd ~/.config/xfce4/xfconf/ && rsync -a xfce-perchannel-xml/ xfce-perchannel-xml.bak/ && wget https://raw.githubusercontent.com/eusouobn/xfce/main/xfce-perchannel-xml.tar.xz && tar -xvf xfce-perchannel-xml.tar.xz && rm -r xfce-perchannel-xml.tar.xz
+
+
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###FONTES###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
 
 
