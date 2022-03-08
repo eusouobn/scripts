@@ -98,6 +98,8 @@ sudo systemctl start bluetooth
 
 sudo cp /etc/bluetooth/main.conf /etc/bluetooth/main.conf.bak && sudo sed -i '2c\\n# Automatically connect both A2DP and HFP/HSP profiles for incoming\n# connections. Some headsets that support both profiles will only connect the\n# other one automatically so the default setting of true is usually a good\n# idea.\nAutoConnect=true\n\n# Disable Headset\nDisable=Headset\n' /etc/bluetooth/main.conf && sudo sed -i '68c\MultiProfile = multiple' /etc/bluetooth/main.conf
 
+mkdir /home/bn/.scripts && echo -e '#!/bin/bash\n\nbluetoothctl connect 85:F0:F0:82:51:21\n\nbluetoothctl connect 85:F0:F0:82:51:21\n\npactl set-default-sink bluez_output.85_F0_F0_82_51_21.a2dp-sink\n\nsleep 5\n\nmidori' | tee /home/bn/.scripts/bluetooth.sh
+
 
 
 echo -e "\n#\n#\n#\n#\n#\n#\n#\n#\n#\n###WINE###\n#\n#\n#\n#\n#\n#\n#\n#\n#\n"
